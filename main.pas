@@ -34,6 +34,7 @@ type
     acExc: TAction;
     acConf: TAction;
     mxUpdate: TmxWebUpdate;
+    Edit1: TEdit;
     procedure btTabClick(Sender: TObject);
     procedure acModoExecute(Sender: TObject);
     procedure acConfExecute(Sender: TObject);
@@ -123,6 +124,8 @@ end;
 procedure TfMain.FormCreate(Sender: TObject);
 begin
 wUsuario:= 'ADMIN';
+mxUpdate.TargetFolder:= ExtractFileDir(GetCurrentDir()) + '\update';
+edit1.Text:= mxUpdate.TargetFolder;
 end;
 
 procedure TfMain.WMACAO(var Msg: TMessage);

@@ -306,6 +306,14 @@ object fMain: TfMain
             0000000000000000000000000000000000000000000000000000}
         end
       end
+      object Edit1: TEdit
+        Left = 120
+        Top = 288
+        Width = 521
+        Height = 23
+        TabOrder = 2
+        Text = 'Edit1'
+      end
     end
   end
   object ActionList1: TActionList
@@ -347,14 +355,16 @@ object fMain: TfMain
     TagInfo.Redirection = 'mxRedirection'
     TagInfo.RunParameters = 'mxRunParameters'
     TagInfo.Version = 'mxVersion'
-    ProductInfo.Version = '1.0'
+    ProductInfo.URL = 'https://github.com/vicvegax/crmg2022/raw/main/update/update.htm'
+    ProductInfo.Version = '0.9'
     InfoCaption.OkButton = '&OK'
     InfoCaption.CancelButton = '&Cancel'
     InfoCaption.CheckForUpdate = 'C&heck for updates in the future'
     Options = [uoRunUpdate, uoTerminate, uoOverwrite]
     Version = '1.21'
+    TargetFolder = '..\Update'
     HTTPPort = 80
-    Left = 745
-    Top = 408
+    Left = 258
+    Top = 136
   end
 end
