@@ -4,3 +4,5 @@
 *.~3~
 __history/*.*
 Win32/*.*
+Win32/Release/*.*
+Win32/Debug/*.*
