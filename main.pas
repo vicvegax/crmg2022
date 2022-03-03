@@ -4,23 +4,13 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, dxSkinsDefaultPainters, dxNavBarCollns,
-  cxClasses, dxNavBarBase, dxNavBar, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
   System.Actions, Vcl.ActnList, funcoes, mxWebUpdate;
 
 type
   TfMain = class(TForm)
     Panel1: TPanel;
-    dxNavBar1: TdxNavBar;
-    dxNavBar1Group1: TdxNavBarGroup;
-    btInv: TdxNavBarItem;
-    btCat: TdxNavBarItem;
-    btUni: TdxNavBarItem;
-    btPes: TdxNavBarItem;
-    btUsu: TdxNavBarItem;
     Panel2: TPanel;
-    pnFoot: TPanel;
     pnPag: TPanel;
     pnHead: TPanel;
     pnBarCad: TPanel;
@@ -35,19 +25,31 @@ type
     acConf: TAction;
     mxUpdate: TmxWebUpdate;
     Edit1: TEdit;
+    Button1: TButton;
+    pnCad: TPanel;
+    pnTitCad: TPanel;
+    btCadInv: TSpeedButton;
+    btCadCat: TSpeedButton;
+    btCadLoc: TSpeedButton;
+    btCadPes: TSpeedButton;
+    btCadUsu: TSpeedButton;
     procedure btTabClick(Sender: TObject);
     procedure acModoExecute(Sender: TObject);
     procedure acConfExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure mxUpdateUpdateAvailable(Sender: TObject; ActualVersion,
+      NewVersion: string; var CanUpdate: Boolean);
+    procedure mxUpdateNoUpdateFound(Sender: TObject);
   private
     { Private declarations }
     fChild: TForm;
     bChild: Boolean;
     lCaption: String;
     procedure WMACAO(var Msg: TMessage); message WM_ACAO;
+    procedure AtuHead(St: String);
   public
     { Public declarations }
-    procedure AtuHead(St: String);
   end;
 
 var
@@ -95,13 +97,16 @@ var
 begin
 tag:= TComponent(Sender).Tag;
 bChild:= true;
+pnHead.Hide;
+pnBarCad.Hide;
 if(Assigned(fChild)) then begin
   bChild:= false;
   if(not (fChild.Tag = tag)) then begin
-    fChild.Close;
-    fChild.Free;
     bChild:= true;
   end;
+  fChild.Close;
+  fChild.Free;
+  fChild:= nil;
 end;
 if(bChild) then begin
   case tag of
@@ -112,6 +117,7 @@ if(bChild) then begin
 
   //pnHead.Caption
   lCaption:= fChild.Caption;
+  pnHead.Show;
   pnBarCad.Show;
   fChild.Tag:= tag;
   fChild.manualdock(pnPag);
@@ -121,11 +127,29 @@ end;
 
 end;
 
+procedure TfMain.Button1Click(Sender: TObject);
+begin
+mxUpdate.CheckForAnUpdate;
+end;
+
 procedure TfMain.FormCreate(Sender: TObject);
 begin
 wUsuario:= 'ADMIN';
-mxUpdate.TargetFolder:= ExtractFileDir(GetCurrentDir()) + '\update';
+mxUpdate.TargetFolder:= ExtractFileDir(ParamStr(0)) + '\update';
 edit1.Text:= mxUpdate.TargetFolder;
+end;
+
+procedure TfMain.mxUpdateNoUpdateFound(Sender: TObject);
+begin
+  MessageDlg( 'There is no update available!', mtError, [ mbOK ], 0 );
+
+end;
+
+procedure TfMain.mxUpdateUpdateAvailable(Sender: TObject; ActualVersion,
+  NewVersion: string; var CanUpdate: Boolean);
+begin
+  CanUpdate := MessageDlg( Format( 'You are using version %s, but version %s is available to ' + #13 + #10 + 'download at the author''s website.' + #13 + #10 + 'Do you want to update your application now?', [ ActualVersion, NewVersion ] ), mtWarning, [ mbYes, mbNo ], 0 ) = mrYes;
+
 end;
 
 procedure TfMain.WMACAO(var Msg: TMessage);

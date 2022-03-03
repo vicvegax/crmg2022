@@ -130,6 +130,11 @@ end;
 function TfLocal.ChkCampos: Boolean;
 begin
   Result:= False;
+  if(length(edDescr.Text) = 0) then begin
+    msgPreen('Nome da Unidade');
+    edDescr.SetFocus;
+    Exit;
+  end;
   if(length(edCod.Text) = 0) then begin
     msgPreen('Código');
     edCod.SetFocus;
@@ -183,6 +188,11 @@ procedure TfLocal.preCampos;
 begin
   with qyRec do begin
     edDESCR.Text:= FieldByName('DESCR').AsString;
+    edCod.Text:= FieldByName('cod').AsString;
+    edlocal.Text:= FieldByName('local').AsString;
+    cbativo.ItemIndex:= fieldbyname('ativo').AsInteger;
+    edobs.lines.Text:= fieldbyname('obs').AsString;
+
     if not (wModo = modoInc) then edID.Text:= FieldByName('id').AsString;
   end;
 end;

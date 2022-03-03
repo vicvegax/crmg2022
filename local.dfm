@@ -78,6 +78,7 @@ object fLocal: TfLocal
       item
         Expanded = False
         FieldName = 'id'
+        Width = 50
         Visible = True
       end
       item
@@ -88,16 +89,19 @@ object fLocal: TfLocal
       item
         Expanded = False
         FieldName = 'descr'
+        Width = 300
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'local'
+        Width = 300
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'obs'
+        Width = 300
         Visible = True
       end
       item
@@ -205,6 +209,7 @@ object fLocal: TfLocal
       FieldName = 'id'
       Origin = 'id'
       ProviderFlags = [pfInWhere, pfInKey]
+      ReadOnly = True
     end
     object qyReccod: TWideStringField
       FieldName = 'cod'
