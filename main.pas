@@ -5,11 +5,12 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
-  System.Actions, Vcl.ActnList, funcoes, mxWebUpdate;
+  System.Actions, Vcl.ActnList, funcoes, mxWebUpdate, mxProtector, cxClasses,
+  cxLocalization;
 
 type
   TfMain = class(TForm)
-    Panel1: TPanel;
+    pnBarra: TPanel;
     Panel2: TPanel;
     pnPag: TPanel;
     pnHead: TPanel;
@@ -33,6 +34,9 @@ type
     btCadLoc: TSpeedButton;
     btCadPes: TSpeedButton;
     btCadUsu: TSpeedButton;
+    mxProtector1: TmxProtector;
+    pnAtu: TPanel;
+    cxLocalizer1: TcxLocalizer;
     procedure btTabClick(Sender: TObject);
     procedure acModoExecute(Sender: TObject);
     procedure acConfExecute(Sender: TObject);
@@ -41,6 +45,7 @@ type
     procedure mxUpdateUpdateAvailable(Sender: TObject; ActualVersion,
       NewVersion: string; var CanUpdate: Boolean);
     procedure mxUpdateNoUpdateFound(Sender: TObject);
+    procedure mxProtector1Expiration(Sender: TObject);
   private
     { Private declarations }
     fChild: TForm;
@@ -60,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses usuario, pessoal, local;
+uses cadUsuario, cadPessoal, cadLocal, cadInvent, cadCateg;
 
 procedure TfMain.acConfExecute(Sender: TObject);
 begin
@@ -72,6 +77,7 @@ end;
 
 procedure TfMain.acModoExecute(Sender: TObject);
 begin
+  //ShellExecute(
  if(not Assigned(fChild)) then Exit;
 
   wModo:= TComponent(Sender).Tag;
@@ -110,6 +116,8 @@ if(Assigned(fChild)) then begin
 end;
 if(bChild) then begin
   case tag of
+    1: fChild:= TfInvent.Create(Application);
+    2: fChild:= TfCateg.Create(Application);
     3: fChild:= TfLocal.Create(Application);
     4: fChild:= TfPessoal.Create(Application);
     5: fChild:= TfUsuario.Create(Application);
@@ -129,14 +137,31 @@ end;
 
 procedure TfMain.Button1Click(Sender: TObject);
 begin
+pnAtu.Width:= Width -300;
+pnAtu.Height:= Height div 2;
+pnAtu.Left:= (Width - pnAtu.Width) div 2;
+pnAtu.Top:= (Height - pnAtu.Height) div 2;
+pnAtu.Show;
+Refresh;
 mxUpdate.CheckForAnUpdate;
+pnAtu.Hide;
+//killapp
 end;
 
 procedure TfMain.FormCreate(Sender: TObject);
 begin
+//cxLocalizer1.FileName:= '.\traducao.ini';
+//cxLocalizer1.Active:= true;
+Self.Caption:= Self.Caption + ' v0.1';
+//getfileversion(
 wUsuario:= 'ADMIN';
 mxUpdate.TargetFolder:= ExtractFileDir(ParamStr(0)) + '\update';
 edit1.Text:= mxUpdate.TargetFolder;
+end;
+
+procedure TfMain.mxProtector1Expiration(Sender: TObject);
+begin
+pnBarra.Enabled:= False;
 end;
 
 procedure TfMain.mxUpdateNoUpdateFound(Sender: TObject);

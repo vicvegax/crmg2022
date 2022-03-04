@@ -58,6 +58,8 @@
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>crmg2022</SanitizedProjectName>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.0.2;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>dxPSdxSpreadSheetLnkRS28;vclwinx;DataSnapServer;fmx;dxRichEditDocumentModelRS28;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;cxExportRS28;FireDACCommonDriver;dxHttpIndyRequestRS28;IndyProtocols;dxPSPrVwRibbonRS28;vclx;dxTileControlRS28;frxe28;IndyIPClient;dbxcds;vcledge;cxLibraryRS28;dxCloudServiceLibraryRS28;cxPivotGridOLAPRS28;dxPScxPivotGridLnkRS28;dxPScxVGridLnkRS28;dxPSdxDBOCLnkRS28;dxPSdxMapControlLnkRS28;dxGDIPlusRS28;DBXFirebirdDriver;dxCoreRS28;cxPivotGridRS28;fsDB28;dxPSdxPDFViewerLnkRS28;dxSpreadSheetCoreRS28;cxSchedulerTreeBrowserRS28;dxPSCoreRS28;FireDACSqliteDriver;DbxClientDriver;dxSpreadSheetRS28;FireDACASADriver;dxTabbedMDIRS28;dxSkinsCoreRS28;dxRichEditInplaceRS28;dxBarRS28;dxSpreadSheetInplaceRichEditRS28;vclactnband;frxIntIO28;dxADOServerModeRS28;fmxFireDAC;dbexpress;dxFireDACServerModeRS28;dxWizardControlRS28;FireDACInfxDriver;DBXMySQLDriver;inet;DataSnapCommon;dxServerModeRS28;dxPSdxLCLnkRS28;cxTreeListRS28;dxdbtrRS28;frx28;dxBarDBNavRS28;DBXOdbcDriver;dbrtl;mxWebUpdate_D12;FireDACDBXDriver;FireDACOracleDriver;dxSpreadSheetCoreDialogsRS28;dxPSLnksRS28;dxPScxCommonRS28;FireDACMSAccDriver;dxNavBarRS28;CustomIPTransport;FireDACMSSQLDriver;dxSpreadSheetReportDesignerRS28;dxFireDACEMFRS28;DBXInterBaseDriver;dxComnRS28;frxDB28;FireDACMongoDBDriver;dxFlowChartDesignerRS28;IndySystem;dxSpreadSheetConditionalFormattingDialogsRS28;cxVerticalGridRS28;FireDACTDataDriver;vcldb;dxDBXServerModeRS28;cxSchedulerRS28;dxmdsRS28;dxRichEditControlRS28;dxRibbonRS28;cxSchedulerGridRS28;dxPsPrVwAdvRS28;dxFlowChartLayoutsRS28;dxPScxExtCommonRS28;dxPScxSchedulerLnkRS28;dxPSdxOCLnkRS28;dxdborRS28;vclFireDAC;fs28;dxRichEditControlCoreRS28;bindcomp;FireDACCommon;FireDACODBCDriver;DataSnapServerMidas;dxADOEMFRS28;dxPSdxDBTVLnkRS28;dxRibbonCustomizationFormRS28;IndyCore;cxPivotGridChartRS28;dxPScxGridLnkRS28;dxBarExtDBItemsRS28;dxGaugeControlRS28;dxRichEditCoreRS28;cxTreeListdxBarPopupMenuRS28;rtl;FireDACMySQLDriver;dxDockingRS28;dxFlowChartAdvancedCustomizeFormRS28;FireDACADSDriver;dxPDFViewerRS28;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;adortl;DataSnapClient;dxBarExtItemsRS28;cxSchedulerWebServiceStorageRS28;dxtrmdRS28;dxorgcRS28;DBXSybaseASEDriver;dxSpreadSheetCoreConditionalFormattingDialogsRS28;dxPSdxFCLnkRS28;DBXDb2Driver;dxPSdxGaugeControlLnkRS28;dxPSRichEditControlLnkRS28;cxGridRS28;dxSpellCheckerRS28;vclimg;DataSnapFireDAC;FireDACPgDriver;FireDAC;FireDACDSDriver;xmlrtl;dxMapControlRS28;dxEMFRS28;dsnap;DBXSybaseASADriver;FireDACDb2Driver;DBXOracleDriver;cxSchedulerRibbonStyleEventEditorRS28;DBXInformixDriver;dxPScxTLLnkRS28;dxFlowChartRS28;dxPScxPCProdRS28;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -91,9 +93,12 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <DCC_ExeOutput>.\compiled</DCC_ExeOutput>
-        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_MajorVer>0</VerInfo_MajorVer>
         <Icon_MainIcon>crmg2022_Icon1.ico</Icon_MainIcon>
+        <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -106,10 +111,8 @@
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <DCC_ExeOutput>.\compiled</DCC_ExeOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>crmg2022_Icon.ico</Icon_MainIcon>
-        <VerInfo_Build>1</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=0.1.0.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>2</VerInfo_Build>
         <VerInfo_MajorVer>0</VerInfo_MajorVer>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
@@ -128,16 +131,24 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="funcoes.pas"/>
-        <DCCReference Include="usuario.pas">
+        <DCCReference Include="cadUsuario.pas">
             <Form>fUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="pessoal.pas">
+        <DCCReference Include="cadPessoal.pas">
             <Form>fPessoal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="local.pas">
+        <DCCReference Include="cadLocal.pas">
             <Form>fLocal</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="cadInvent.pas">
+            <Form>fInvent</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="cadCateg.pas">
+            <Form>fCateg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">
@@ -200,6 +211,12 @@
             </Delphi.Personality>
             <Deployment Version="3">
                 <DeployFile LocalName="compiled\crmg2022.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>crmg2022.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="compiled\crmg2022.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>crmg2022.exe</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -1006,10 +1023,10 @@
                 </DeployClass>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="OSX64" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Android64" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSXARM64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Linux64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>

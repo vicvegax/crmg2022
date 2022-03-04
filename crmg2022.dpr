@@ -5,9 +5,11 @@ uses
   main in 'main.pas' {fMain},
   DtMod in 'DtMod.pas' {DM: TDataModule},
   funcoes in 'funcoes.pas',
-  usuario in 'usuario.pas' {fUsuario},
-  pessoal in 'pessoal.pas' {fPessoal},
-  local in 'local.pas' {fLocal};
+  cadUsuario in 'cadUsuario.pas' {fUsuario},
+  cadPessoal in 'cadPessoal.pas' {fPessoal},
+  cadLocal in 'cadLocal.pas' {fLocal},
+  cadInvent in 'cadInvent.pas' {fInvent},
+  cadCateg in 'cadCateg.pas' {fCateg};
 
 {$R *.res}
 

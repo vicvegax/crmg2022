@@ -1,4 +1,4 @@
-unit pessoal;
+unit cadUsuario;
 
 interface
 
@@ -8,39 +8,38 @@ uses
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, Vcl.Mask, Vcl.Buttons, funcoes;
+  FireDAC.Comp.Client, Vcl.Mask, Vcl.Buttons, funcoes, MyComboBox2022;
 
 type
-  TfPessoal = class(TForm)
+  TfUsuario = class(TForm)
     dsRec: TDataSource;
     qyRec: TFDQuery;
-    gdRec: TDBGrid;
-    Label1: TLabel;
-    edDESCR: TEdit;
-    Label5: TLabel;
-    edID: TEdit;
     qyRecid: TFDAutoIncField;
-    qyReccod: TWideStringField;
     qyRecdescr: TWideStringField;
-    qyRecobs: TWideStringField;
-    qyRecid_loc: TIntegerField;
+    qyReccd_usu: TWideStringField;
+    qyRecpass: TWideStringField;
     qyRecdt_inc: TDateField;
     qyRecus_inc: TWideStringField;
     qyRecdt_alt: TDateField;
     qyRecus_alt: TWideStringField;
     qyRecrg_alt: TWideStringField;
-    edCod: TEdit;
+    gdRec: TDBGrid;
+    Label1: TLabel;
     Label2: TLabel;
+    edDESCR: TEdit;
     Label3: TLabel;
-    cbAtivo: TComboBox;
-    Label4: TLabel;
-    edObs: TMemo;
+    edCDUSU: TEdit;
+    edPASS: TEdit;
+    Label5: TLabel;
+    edID: TEdit;
     qyRecativo: TIntegerField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure edENTER_KeyPress(Sender: TObject; var Key: Char);
+    procedure edPASSKeyPress(Sender: TObject; var Key: Char);
+    procedure qyRecAfterScroll(DataSet: TDataSet);
     procedure gdRecDblClick(Sender: TObject);
+    procedure edENTERKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     function ExeAcao: Boolean;
@@ -50,12 +49,14 @@ type
     procedure LimpaCampos;
     var
       qtModoInc: Integer;
+    //var
   public
     { Public declarations }
+    //lModo: Integer;
   end;
 
 var
-  fPessoal: TfPessoal;
+  fUsuario: TfUsuario;
 
 implementation
 
@@ -63,7 +64,7 @@ implementation
 
 uses DtMod;
 
-function TfPessoal.ExeAcao: Boolean;
+function TfUsuario.ExeAcao: Boolean;
 var
   bLocId, bLocReg: Boolean;
 begin
@@ -71,21 +72,22 @@ begin
 
   if(not ChkCampos) then Exit;
   qyRec.DisableControls;
-  bLocReg:= qyRec.Locate('cod', edCod.Text, []);
+  bLocReg:= qyRec.Locate('cd_usu', edCDUSU.Text, []);
   bLocId:= false;
   if (wModo <> modoInc) then
+    //if strtoint(edID.Text)>0 then
       bLocId:= qyRec.Locate('id', edID.Text, []);
 
   if not (wModo = modoExc) then begin
     if(wModo = modoInc) then begin
       if(bLocReg) then begin
-        MsgErro(Format(kJaCad, ['Pessoal']));
+        MsgErro(Format(kJaCad, ['Usuário']));
         Exit;
       end;
       if(not msgPergunta(kMsgInc, kModo[wModo])) then exit;
     end else begin
       if(not bLocId) then begin
-        MsgErro(Format(kNaoLoc, ['Pessoal']));
+        MsgErro(Format(kNaoLoc, ['Usuário']));
         Exit;
       end;
       if(not msgPergunta(kMsgAlt, kModo[wModo])) then exit;
@@ -101,14 +103,13 @@ begin
         FieldByName('DT_ALT').AsDateTime:= Date;
       end;
       FieldByName('DESCR').AsString:= edDESCR.Text;
-      FieldByName('cod').AsString:= edCod.Text;
-      FieldByName('ativo').AsInteger:= cbAtivo.ItemIndex;
-      FieldByName('obs').AsString:= edObs.Lines.Text;
+      FieldByName('CD_USU').AsString:= edCDUSU.Text;
+      FieldByName('PASS').AsString:= CodificaH(edPASS.Text, 0);
       Post;
     end;
   end else begin
     if(not bLocId) then begin
-      MsgErro(Format(kNaoLoc, ['Pessoal']));
+      MsgErro(Format(kNaoLoc, ['Usuário']));
       Exit;
     end;
     if(msgPergunta(kMsgExc, kModo[wModo])) then
@@ -118,29 +119,38 @@ begin
   end;
   qyRec.EnableControls;
   qyRec.Refresh;
-  gdRec.Refresh;
+  if wModo = modoExc then gdRec.Repaint
+  else gdRec.Refresh;
   LimpaCampos;
   MudaModo(modoInc);
   Result:= true;
 end;
 
-function TfPessoal.ChkCampos: Boolean;
+function TfUsuario.ChkCampos: Boolean;
 begin
   Result:= False;
-  if(length(edCod.Text) = 0) then begin
-    msgPreen('Código');
-    edCod.SetFocus;
+  if(wModo <>modoExc) and (length(edPASS.Text) < 4) then begin
+    msgErro('Senha precisa ter 4 dígitos ou mais.');
+    edPASS.SetFocus;
     Exit;
   end;
   if(length(edDescr.Text) = 0) then begin
-    msgPreen('Nome Completo');
+    msgPreen('Nome');
     edDescr.SetFocus;
-    Exit;
   end;
   Result:= True;
 end;
 
-procedure TfPessoal.edENTER_KeyPress(Sender: TObject; var Key: Char);
+procedure TfUsuario.edENTERKeyPress(Sender: TObject; var Key: Char);
+begin
+//if(key = #13) then begin
+  //key := #0;
+  //ProxFocus(Self);
+  //Self.Perform(CM_DIALOGKEY, VK_TAB, 0);
+//end;
+end;
+
+procedure TfUsuario.edPASSKeyPress(Sender: TObject; var Key: Char);
 begin
 if(key = kENTER) then begin
   key:= #0;
@@ -148,50 +158,56 @@ if(key = kENTER) then begin
 end;
 end;
 
-procedure TfPessoal.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 qyRec.Close;
 end;
 
-procedure TfPessoal.FormCreate(Sender: TObject);
+procedure TfUsuario.FormCreate(Sender: TObject);
 begin
 qyRec.Open();
+//btInc.Click;
+//qtMovoInc:= 0;
 end;
 
-procedure TfPessoal.FormShow(Sender: TObject);
+procedure TfUsuario.FormShow(Sender: TObject);
 begin
-//edDESCR.SetFocus;
+edDESCR.SetFocus;
 LimpaCampos;
 end;
 
-procedure TfPessoal.gdRecDblClick(Sender: TObject);
+procedure TfUsuario.gdRecDblClick(Sender: TObject);
 begin
+//if(wModo = modoInc) then
 if qyRec.RecordCount>0 then
   PreCampos;
 end;
 
-procedure TfPessoal.LimpaCampos;
+procedure TfUsuario.LimpaCampos;
 begin
   edDescr.Text:= '';
-  edCod.Text:= '';
-  cbAtivo.ItemIndex:= 0;
-  edObs.Lines.Clear;
+  edCDUSU.Text:= '';
+  edPASS.Text:= '';
   edID.Text:= kNovoId;
   qtModoInc:= 0;
 end;
 
-procedure TfPessoal.preCampos;
+procedure TfUsuario.preCampos;
 begin
   with qyRec do begin
     edDESCR.Text:= FieldByName('DESCR').AsString;
-    edCod.Text:= FieldByName('Cod').AsString;
-    cbAtivo.ItemIndex:= FieldByName('ativo').AsInteger;
-    edObs.Lines.Text:= FieldByName('obs').AsString;
     if not (wModo = modoInc) then edID.Text:= FieldByName('id').AsString;
+    edCDUSU.Text:= FieldByName('cd_usu').AsString;
+    edPASS.Text:= '';
   end;
 end;
 
-procedure TfPessoal.WMACAO(var Msg: TMessage);
+procedure TfUsuario.qyRecAfterScroll(DataSet: TDataSet);
+begin
+//if not (wModo = modoInc) then PreCampos;
+end;
+
+procedure TfUsuario.WMACAO(var Msg: TMessage);
 begin
   if Msg.wParam = wpModo then begin
     if Msg.LParam <> modoInc then begin

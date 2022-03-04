@@ -16,16 +16,16 @@ const
   modoExc = 3;
 
 
-  kNovoId = '(NOVO)';
+  kNovoId = '(AUTOM)';
   kENTER = #13;
 
   kMsgInc = 'Confirma Inclusão deste Registro?';
   kMsgAlt = 'Confirma Alteração deste Registro?';
   kMsgExc = 'Confirma Exclusão deste Registro?';
-  kMsgCer = 'Tem Certeza?';
-  kJaCad = 'Este "%s" já está cadastrado.';
-  kNaoLoc = 'Este "%s" não foi localizado.';
-  kCadas = 'Este "%s" não existe. Deseja cadastrá-lo?';
+  kMsgCer = 'Tem CERTEZA que dejesa Excluir este Registro?';
+  kJaCad = 'Este(a) "%s" já está cadastrado.';
+  kNaoLoc = 'Este(a) "%s" não foi localizado.';
+  kCadas = 'Este(a) "%s" não existe. Deseja cadastrá-lo(a)?';
   kPreen = 'Você deve preencher o campo "%s" corretamente.';
 
 var

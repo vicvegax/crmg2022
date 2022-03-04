@@ -1,7 +1,7 @@
 object fMain: TfMain
   Left = 0
   Top = 0
-  Caption = 'CRM'
+  Caption = 'Controle de Materiais e Gastos v0.1 :)'
   ClientHeight = 553
   ClientWidth = 982
   Color = clBtnFace
@@ -12,10 +12,11 @@ object fMain: TfMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
-  object Panel1: TPanel
+  object pnBarra: TPanel
     Left = 0
     Top = 0
     Width = 177
@@ -43,7 +44,7 @@ object fMain: TfMain
         Align = alTop
         AllowAllUp = True
         GroupIndex = 1
-        Caption = 'Invent'#225'rio'
+        Caption = 'Invent'#225'rio (Bens?)'
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
           2000000000000010000000000000000000000000000000000000000000000000
@@ -186,7 +187,7 @@ object fMain: TfMain
         Align = alTop
         AllowAllUp = True
         GroupIndex = 1
-        Caption = 'Categorias'
+        Caption = 'Categorias (Grupos?)'
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
           2000000000000010000000000000000000000000000000000000000000000000
@@ -330,7 +331,7 @@ object fMain: TfMain
         Align = alTop
         AllowAllUp = True
         GroupIndex = 1
-        Caption = 'Unidades'
+        Caption = 'Unidades (Locais?)'
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
           2000000000000010000000000000000000000000000000000000000000000000
@@ -473,7 +474,7 @@ object fMain: TfMain
         Align = alTop
         AllowAllUp = True
         GroupIndex = 1
-        Caption = 'Pessoal'
+        Caption = 'Pessoal (Funcion'#225'rios?)'
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
           2000000000000010000000000000000000000000000000000000000000000000
@@ -616,7 +617,7 @@ object fMain: TfMain
         Align = alTop
         AllowAllUp = True
         GroupIndex = 1
-        Caption = 'Usu'#225'rios'
+        Caption = 'Usu'#225'rios ?'
         Glyph.Data = {
           36100000424D3610000000000000360000002800000020000000200000000100
           2000000000000010000000000000000000000000000000000000000000000000
@@ -766,7 +767,6 @@ object fMain: TfMain
         ParentBackground = False
         ParentFont = False
         TabOrder = 0
-        ExplicitWidth = 177
       end
     end
   end
@@ -786,7 +786,9 @@ object fMain: TfMain
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 512
+      DesignSize = (
+        805
+        553)
       object pnHead: TPanel
         Left = 0
         Top = 0
@@ -795,7 +797,7 @@ object fMain: TfMain
         Align = alTop
         Alignment = taLeftJustify
         BorderWidth = 10
-        Caption = 'Nome de Formul'#225'rio Ativo'
+        Caption = 'Nome do Formul'#225'rio Ativo'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -813,8 +815,6 @@ object fMain: TfMain
         Align = alBottom
         TabOrder = 1
         Visible = False
-        ExplicitLeft = 6
-        ExplicitTop = 489
         object btInc: TSpeedButton
           Tag = 1
           Left = 16
@@ -998,17 +998,34 @@ object fMain: TfMain
         Height = 23
         TabOrder = 2
         Text = 'Edit1'
+        Visible = False
       end
       object Button1: TButton
-        Left = 280
-        Top = 384
-        Width = 75
-        Height = 25
-        Caption = 'Button1'
+        Left = 6
+        Top = 472
+        Width = 128
+        Height = 34
+        Anchors = [akLeft, akBottom]
+        Caption = 'Verificar Atualiza'#231#245'es'
         TabOrder = 3
         OnClick = Button1Click
       end
     end
+  end
+  object pnAtu: TPanel
+    Left = 872
+    Top = 329
+    Width = 185
+    Height = 81
+    Caption = 'Verificando Atualiza'#231#227'o!'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -60
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    Visible = False
   end
   object ActionList1: TActionList
     Left = 385
@@ -1049,17 +1066,43 @@ object fMain: TfMain
     TagInfo.Redirection = 'mxRedirection'
     TagInfo.RunParameters = 'mxRunParameters'
     TagInfo.Version = 'mxVersion'
-    ProductInfo.URL = 'http://github.com/vicvegax/crmg2022/raw/main/update/update.htm'
+    ProductInfo.URL = 'http://github.com/vicvegax/crmg2022/raw/main/updates/update.htm'
     ProductInfo.Version = '0.9'
     InfoCaption.OkButton = '&OK'
     InfoCaption.CancelButton = '&Cancel'
     InfoCaption.CheckForUpdate = 'C&heck for updates in the future'
-    Options = [uoRunUpdate]
+    Options = [uoRunUpdate, uoTerminate, uoOverwrite]
     Version = '1.21'
     HTTPPort = 80
     OnUpdateAvailable = mxUpdateUpdateAvailable
     OnNoUpdateFound = mxUpdateNoUpdateFound
     Left = 627
     Top = 154
+  end
+  object mxProtector1: TmxProtector
+    CodeKey = 'Ignore'
+    ProtectionTypes = [stTimeTrial]
+    Options = [poAutoInit, poCheckSytemTime, poPasswordOnce]
+    RegistryRootKey = rkCurrentUser
+    Expiration = 44624.481944444440000000
+    MaxStartNumber = 3
+    MaxDayNumber = 5
+    Version = '1.32'
+    OnExpiration = mxProtector1Expiration
+    Left = 617
+    Top = 216
+    UniqueCodeID = 
+      '7A4146373C33463F4A273B4F3D372224552723392D21262F34582F2A2B282862' +
+      '62166614165B'
+    UniqueID = 
+      '210A20736C006F6C750102670D516C1D7614146E6500680C4E0F1F746561076F' +
+      '741A09577221'
+  end
+  object cxLocalizer1: TcxLocalizer
+    Active = True
+    FileName = 'D:\Projetos\Delphi\crmg2022\compiled\traducao.ini'
+    Locale = 1046
+    Left = 297
+    Top = 128
   end
 end

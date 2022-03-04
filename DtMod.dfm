@@ -15,7 +15,6 @@ object DM: TDM
       'LockingMode=Normal'
       'DriverID=SQLite')
     ConnectedStoredUsage = [auDesignTime]
-    Connected = True
     LoginPrompt = False
     Transaction = FDTransaction1
     Left = 80
@@ -33,6 +32,13 @@ object DM: TDM
     SQL.Strings = (
       'select * from tbUsuario')
     Left = 104
+    Top = 264
+  end
+  object qyLoc: TFDQuery
+    Connection = DBCON
+    SQL.Strings = (
+      'select * from tbLocal')
+    Left = 232
     Top = 264
   end
 end
