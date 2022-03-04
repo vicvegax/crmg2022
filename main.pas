@@ -48,6 +48,7 @@ type
       NewVersion: string; var CanUpdate: Boolean);
     procedure mxUpdateNoUpdateFound(Sender: TObject);
     procedure mxProtector1Expiration(Sender: TObject);
+    procedure mxUpdateDownload(Sender: TObject; Total, Downloaded: Integer);
   private
     { Private declarations }
     fChild: TForm;
@@ -152,8 +153,9 @@ end;
 
 procedure TfMain.FormCreate(Sender: TObject);
 begin
-//cxLocalizer1.FileName:= '.\traducao.ini';
-//cxLocalizer1.Active:= true;
+cxLocalizer1.FileName:= '.\traducao.ini';
+cxLocalizer1.Active:= true;
+cxLocalizer1.Locale:= 1046;
 Self.Caption:= Self.Caption + ' ' + edVersao.Text;
 //getfileversion(
 wUsuario:= 'ADMIN';
@@ -164,6 +166,11 @@ end;
 procedure TfMain.mxProtector1Expiration(Sender: TObject);
 begin
 pnBarra.Enabled:= False;
+end;
+
+procedure TfMain.mxUpdateDownload(Sender: TObject; Total, Downloaded: Integer);
+begin
+  pnAtu.Caption:= 'Baixando: ' + IntToStr(Downloaded);
 end;
 
 procedure TfMain.mxUpdateNoUpdateFound(Sender: TObject);

@@ -1024,16 +1024,16 @@ object fMain: TfMain
         Width = 121
         Height = 23
         TabOrder = 4
-        Text = 'v0.1 :)'
+        Text = 'v0.1.01 :)'
         Visible = False
       end
     end
   end
   object pnAtu: TPanel
-    Left = 872
-    Top = 329
-    Width = 185
-    Height = 81
+    Left = 256
+    Top = 240
+    Width = 521
+    Height = 154
     Caption = 'Verificando Atualiza'#231#227'o!'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
@@ -1093,6 +1093,7 @@ object fMain: TfMain
     HTTPPort = 80
     OnUpdateAvailable = mxUpdateUpdateAvailable
     OnNoUpdateFound = mxUpdateNoUpdateFound
+    OnDownload = mxUpdateDownload
     Left = 627
     Top = 154
   end
@@ -1116,9 +1117,6 @@ object fMain: TfMain
       '741A09577221'
   end
   object cxLocalizer1: TcxLocalizer
-    Active = True
-    FileName = 'D:\Projetos\Delphi\crmg2022\compiled\traducao.ini'
-    Locale = 1046
     Left = 297
     Top = 128
   end
