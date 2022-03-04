@@ -37,6 +37,8 @@ type
     mxProtector1: TmxProtector;
     pnAtu: TPanel;
     cxLocalizer1: TcxLocalizer;
+    edVersao: TEdit;
+    Label1: TLabel;
     procedure btTabClick(Sender: TObject);
     procedure acModoExecute(Sender: TObject);
     procedure acConfExecute(Sender: TObject);
@@ -152,7 +154,7 @@ procedure TfMain.FormCreate(Sender: TObject);
 begin
 //cxLocalizer1.FileName:= '.\traducao.ini';
 //cxLocalizer1.Active:= true;
-Self.Caption:= Self.Caption + ' v0.1';
+Self.Caption:= Self.Caption + ' ' + edVersao.Text;
 //getfileversion(
 wUsuario:= 'ADMIN';
 mxUpdate.TargetFolder:= ExtractFileDir(ParamStr(0)) + '\update';
@@ -166,14 +168,14 @@ end;
 
 procedure TfMain.mxUpdateNoUpdateFound(Sender: TObject);
 begin
-  MessageDlg( 'There is no update available!', mtError, [ mbOK ], 0 );
+  MessageDlg( 'Não há atualização disponível!', mtError, [ mbOK ], 0 );
 
 end;
 
 procedure TfMain.mxUpdateUpdateAvailable(Sender: TObject; ActualVersion,
   NewVersion: string; var CanUpdate: Boolean);
 begin
-  CanUpdate := MessageDlg( Format( 'You are using version %s, but version %s is available to ' + #13 + #10 + 'download at the author''s website.' + #13 + #10 + 'Do you want to update your application now?', [ ActualVersion, NewVersion ] ), mtWarning, [ mbYes, mbNo ], 0 ) = mrYes;
+  CanUpdate := MessageDlg('Deseja mesmo baixar a atualização?', mtWarning, [ mbYes, mbNo ], 0 ) = mrYes;
 
 end;
 

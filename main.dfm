@@ -1,7 +1,7 @@
 object fMain: TfMain
   Left = 0
   Top = 0
-  Caption = 'Controle de Materiais e Gastos v0.1 :)'
+  Caption = 'Controle de Materiais e Gastos'
   ClientHeight = 553
   ClientWidth = 982
   Color = clBtnFace
@@ -789,6 +789,14 @@ object fMain: TfMain
       DesignSize = (
         805
         553)
+      object Label1: TLabel
+        Left = 43
+        Top = 64
+        Width = 134
+        Height = 15
+        Caption = 'Vers'#227'o (mudar ao enviar):'
+        Visible = False
+      end
       object pnHead: TPanel
         Left = 0
         Top = 0
@@ -1009,6 +1017,15 @@ object fMain: TfMain
         Caption = 'Verificar Atualiza'#231#245'es'
         TabOrder = 3
         OnClick = Button1Click
+      end
+      object edVersao: TEdit
+        Left = 183
+        Top = 61
+        Width = 121
+        Height = 23
+        TabOrder = 4
+        Text = 'v0.1 :)'
+        Visible = False
       end
     end
   end
