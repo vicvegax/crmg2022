@@ -1030,8 +1030,8 @@ object fMain: TfMain
     end
   end
   object pnAtu: TPanel
-    Left = 256
-    Top = 240
+    Left = 872
+    Top = 376
     Width = 521
     Height = 154
     Caption = 'Verificando Atualiza'#231#227'o!'
@@ -1107,8 +1107,8 @@ object fMain: TfMain
     MaxDayNumber = 5
     Version = '1.32'
     OnExpiration = mxProtector1Expiration
-    Left = 617
-    Top = 216
+    Left = 786
+    Top = 338
     UniqueCodeID = 
       '7A4146373C33463F4A273B4F3D372224552723392D21262F34582F2A2B282862' +
       '62166614165B'
