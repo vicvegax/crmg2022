@@ -71,7 +71,7 @@ begin
   Result:= False;
 
   if(not ChkCampos) then Exit;
-  qyRec.DisableControls;
+  //qyRec.DisableControls;
   bLocReg:= qyRec.Locate('cd_usu', edCDUSU.Text, []);
   bLocId:= false;
   if (wModo <> modoInc) then
@@ -117,10 +117,11 @@ begin
 
     qyREC.Delete;
   end;
-  qyRec.EnableControls;
-  qyRec.Refresh;
-  if wModo = modoExc then gdRec.Repaint
-  else gdRec.Refresh;
+  //qyRec.EnableControls;
+  //qyRec.Refresh;
+  //if wModo = modoExc then gdRec.Repaint
+  //else
+  gdRec.Refresh;
   LimpaCampos;
   MudaModo(modoInc);
   Result:= true;
@@ -213,6 +214,7 @@ begin
     if Msg.LParam <> modoInc then begin
       if(qyRec.RecordCount > 0) then PreCampos
       else MudaModo(modoInc);
+      qtModoInc:= 0;
     end else begin
       edID.Text:= kNovoID;
       inc(qtModoInc);

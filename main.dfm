@@ -1024,7 +1024,7 @@ object fMain: TfMain
         Width = 121
         Height = 23
         TabOrder = 4
-        Text = 'v0.1.05 :)'
+        Text = 'v0.2.0.2 :)'
         Visible = False
       end
     end

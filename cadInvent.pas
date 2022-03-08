@@ -100,6 +100,7 @@ type
     procedure gdRecDblClick(Sender: TObject);
     procedure qyRecCalcFields(DataSet: TDataSet);
     procedure qyMovCalcFields(DataSet: TDataSet);
+    procedure edDTINCORExit(Sender: TObject);
   private
     { Private declarations }
     function ExeAcao: Boolean;
@@ -200,7 +201,7 @@ begin
         qyMov.FieldByName('st_fim').AsString:= cSTFIM;
         qyMov.FieldByName('tp_reg').AsString:= cTPAQU;
         qyMov.FieldByName('nt_reg').AsString:= cNTCRE;
-        qyMov.FieldByName('date').AsDateTime:= edDtIncor.Date;
+        qyMov.FieldByName('data').AsDateTime:= edDtIncor.Date;
         qyMov.FieldByName('dt_inc').AsDateTime:= date;
         qyMov.FieldByName('us_inc').AsString:= wUsuario;
         qyMov.Post;
@@ -263,6 +264,7 @@ end;
 function TfInvent.ChkCampos: Boolean;
 begin
   Result:= False;
+  edDescr.SetFocus;
   if(length(edCod.Text) = 0) then begin
     msgPreen('Código');
     edCod.SetFocus;
@@ -273,7 +275,27 @@ begin
     edDescr.SetFocus;
     Exit;
   end;
+  if(cbidcat.ItemIndex< 0) then begin
+    msgPreen('Categoria');
+    cbidcat.SetFocus;
+    Exit;
+  end;
+  if(cbIDLOC.ItemIndex<0) then begin
+    msgPreen('Local');
+    cbidloc.SetFocus;
+    Exit;
+  end;
+  if(edDTINCOR.EditValue = null) then begin
+    msgPreen('Data da Incorporação');
+    edDTINCOR.SetFocus;
+    Exit;
+  end;
   Result:= True;
+end;
+
+procedure TfInvent.edDTINCORExit(Sender: TObject);
+begin
+//edDTINCOR.PostEditValue;
 end;
 
 procedure TfInvent.edENTER_KeyPress(Sender: TObject; var Key: Char);
@@ -301,12 +323,15 @@ qyMov.Open();
 //qyMov.Filter:= 'id_inv = -1';
 PreCbo;
 pcInv.ActivePage:= tsCad;
+
+//qtModoInc:=0;
 end;
 
 procedure TfInvent.FormShow(Sender: TObject);
 begin
 //edDESCR.SetFocus;
 LimpaCampos;
+//qtModoInc:= -1;
 end;
 
 procedure TfInvent.gdRecDblClick(Sender: TObject);
@@ -329,7 +354,7 @@ begin
 
   cbAtivo.ItemIndex:= 0;
   edDTMAN.EditValue:= null;
-  cbIdLoc.ItemHeight:= -1;
+  cbIdLoc.ItemIndex:= -1;
   edDTINCOR.EditValue:= null;
   cbTPINCOR.ItemIndex:= 0;
   edObs.Lines.Clear;
@@ -400,6 +425,7 @@ begin
     if Msg.LParam <> modoInc then begin
       if(qyRec.RecordCount > 0) then PreCampos
       else MudaModo(modoInc);
+      qtModoInc:= 0;
     end else begin
       edID.Text:= kNovoID;
       qyMov.Filter:= ' id_inv = -1';

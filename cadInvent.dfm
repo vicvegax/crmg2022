@@ -217,9 +217,11 @@ object fInvent: TfInvent
         Top = 241
         Properties.Alignment.Horz = taRightJustify
         Properties.DisplayFormat = 'dd/mm/yyyy'
+        Properties.ImmediatePost = True
         Properties.SaveTime = False
         Properties.ShowTime = False
         TabOrder = 9
+        OnExit = edDTINCORExit
         OnKeyPress = edENTER_KeyPress
         Width = 121
       end
@@ -281,11 +283,13 @@ object fInvent: TfInvent
           item
             Expanded = False
             FieldName = 'ds_reg'
+            Width = 204
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'ds_loc'
+            Width = 265
             Visible = True
           end
           item
@@ -306,7 +310,6 @@ object fInvent: TfInvent
           item
             Expanded = False
             FieldName = 'nt_reg'
-            Width = 64
             Visible = True
           end
           item
@@ -322,7 +325,6 @@ object fInvent: TfInvent
           item
             Expanded = False
             FieldName = 'obs'
-            Width = 64
             Visible = True
           end
           item
@@ -663,6 +665,7 @@ object fInvent: TfInvent
     Top = 163
     object qyMovid: TFDAutoIncField
       FieldName = 'id'
+      ReadOnly = True
     end
     object qyMovid_inv: TIntegerField
       FieldName = 'id_inv'

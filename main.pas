@@ -78,6 +78,8 @@ begin
 //
   if(not Assigned(fChild)) then Exit;
 
+  //Self.SetFocus;
+  //Edit1.SetFocus;
   SendMessage(fChild.Handle, WM_ACAO, wpConfirma, 0); //Informa Ação Confirma
 end;
 
@@ -164,6 +166,7 @@ Self.Caption:= Self.Caption + ' ' + edVersao.Text;
 wUsuario:= 'ADMIN';
 mxUpdate.TargetFolder:= ExtractFileDir(ParamStr(0)) + '\update';
 edit1.Text:= mxUpdate.TargetFolder;
+
 end;
 
 procedure TfMain.mxProtector1Expiration(Sender: TObject);
