@@ -1,18 +1,17 @@
- [2022-03-05 07:54:52.735 Info] Start of Log
- [2022-03-05 07:54:52.735 Info] updatehm version 0.0.15
- [2022-03-05 07:54:52.735 Info] Given parameters follow:
- [2022-03-05 07:54:52.735 Info] App name = crmg2022.exe
- [2022-03-05 07:54:52.735 Info] Updates folder = update
- [2022-03-05 07:54:52.735 Info] WhatsNew filename = CRMG2022
- [2022-03-05 07:54:52.735 Info] Pretty Name = Lazarus Auto-Updater
- [2022-03-05 07:54:52.735 Info] CopyTree = FALSE
- [2022-03-05 07:54:52.735 Info] Please wait.  Updating Lazarus Auto-Updater....
- [2022-03-05 07:54:52.736 Info] Application path = D:\Projetos\Delphi\crmg2022\compiled\crmg2022.exe
- [2022-03-05 07:54:52.736 Info] Updated application path = D:\Projetos\Delphi\crmg2022\compiled\update\crmg2022.exe
- [2022-03-05 07:54:52.736 Info] WhatsNew path = D:\Projetos\Delphi\crmg2022\compiled\CRMG2022
- [2022-03-05 07:54:52.736 Info] Updated whatsNew path = D:\Projetos\Delphi\crmg2022\compiled\update\CRMG2022
- [2022-03-05 07:54:52.736 Info] Waiting 2 seconds...
- [2022-03-05 07:54:54.768 Info] Copying over executeable, then sleeping...
- [2022-03-05 07:54:54.768 Info] Waiting 1 second...
- [2022-03-05 07:54:55.768 Info] Restarting Lazarus Auto-Updater...
- [2022-03-05 07:54:55.870 Info] End of Log
+ [2022-03-08 16:02:40.963 Info] Start of Log
+ [2022-03-08 16:02:40.964 Info] updatehm version 0.0.15
+ [2022-03-08 16:02:40.964 Info] Given parameters follow:
+ [2022-03-08 16:02:40.964 Info] App name = crmg2022.exe
+ [2022-03-08 16:02:40.964 Info] Updates folder = update
+ [2022-03-08 16:02:40.964 Info] WhatsNew filename = CRMG2022
+ [2022-03-08 16:02:40.964 Info] Pretty Name = Lazarus Auto-Updater
+ [2022-03-08 16:02:40.964 Info] CopyTree = FALSE
+ [2022-03-08 16:02:40.964 Info] Please wait.  Updating Lazarus Auto-Updater....
+ [2022-03-08 16:02:40.964 Info] Application path = D:\Projetos\Delphi\crmg2022\compiled\crmg2022.exe
+ [2022-03-08 16:02:40.964 Info] Updated application path = D:\Projetos\Delphi\crmg2022\compiled\update\crmg2022.exe
+ [2022-03-08 16:02:40.964 Info] WhatsNew path = D:\Projetos\Delphi\crmg2022\compiled\CRMG2022
+ [2022-03-08 16:02:40.964 Info] Updated whatsNew path = D:\Projetos\Delphi\crmg2022\compiled\update\CRMG2022
+ [2022-03-08 16:02:40.964 Info] Waiting 2 seconds...
+ [2022-03-08 16:02:42.965 Info] Copy to D:\Projetos\Delphi\crmg2022\compiled\update\crmg2022.exe failed
+ [2022-03-08 16:02:42.965 Info] Restarting Lazarus Auto-Updater...
+ [2022-03-08 16:02:42.975 Info] End of Log
