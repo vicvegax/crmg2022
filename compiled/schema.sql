@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.3.3 on sex mar 4 06:40:11 2022
+-- File generated with SQLiteStudio v3.3.3 on ter mar 8 15:52:29 2022
 --
 -- Text encoding used: System
 --
@@ -13,6 +13,8 @@ CREATE TABLE if not EXISTS plMovimento (
     id_loc INTEGER,
     st_ini CHAR (1),
     st_fim CHAR (1),
+    tp_reg CHAR (1),
+    nt_reg CHAR (1),
     data   DATE,
     cd_mov INTEGER,
     obs    TEXT (255),
@@ -51,6 +53,8 @@ CREATE TABLE if not EXISTS tbInvent (
     situa    INTEGER,
     dt_man   DATE,
     id_man   INTEGER,
+    dt_incor DATE,
+    tp_incor INTEGER,
     ativo    INTEGER,
     dt_inc   DATE,
     us_inc   TEXT (8),
@@ -104,6 +108,20 @@ CREATE TABLE if not EXISTS tbUsuario (
     dt_alt DATE,
     us_alt TEXT (8),
     rg_alt TEXT (200) 
+);
+
+
+-- Index: idCodInv
+CREATE UNIQUE INDEX if not EXISTS idCodInv ON tbInvent (
+    cod ASC
+);
+
+
+-- Index: idInv
+CREATE INDEX if not EXISTS idInv ON plMovimento (
+    id_inv ASC,
+    data ASC,
+    tp_reg ASC
 );
 
 

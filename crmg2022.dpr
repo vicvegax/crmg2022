@@ -16,7 +16,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.Title := 'CRM';
+  Application.Title := 'CRMG 2022';
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TfMain, fMain);
   Application.Run;

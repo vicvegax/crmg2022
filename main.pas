@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons,
   System.Actions, Vcl.ActnList, funcoes, mxWebUpdate, mxProtector, cxClasses,
-  cxLocalization;
+  cxLocalization, Zip, ShellApi, UITypes;
 
 type
   TfMain = class(TForm)
@@ -49,6 +49,9 @@ type
     procedure mxUpdateNoUpdateFound(Sender: TObject);
     procedure mxProtector1Expiration(Sender: TObject);
     procedure mxUpdateDownload(Sender: TObject; Total, Downloaded: Integer);
+    procedure mxUpdateAfterDownload(Sender: TObject; FileName: string);
+    procedure mxUpdateBeforeShowInfo(Sender: TObject; var ShowInfo,
+      CheckForUpdate: Boolean);
   private
     { Private declarations }
     fChild: TForm;
@@ -166,6 +169,27 @@ end;
 procedure TfMain.mxProtector1Expiration(Sender: TObject);
 begin
 pnBarra.Enabled:= False;
+end;
+
+procedure TfMain.mxUpdateAfterDownload(Sender: TObject; FileName: string);
+var
+  arq: TZipFile;
+begin
+arq:= TZipFile.Create;
+arq.Open(ExtractFileDir(ParamStr(0)) + '\update\update.zip', zmRead);
+arq.ExtractAll(ExtractFileDir(ParamStr(0)) + '\update');
+arq.Close;
+arq.Free;
+pnAtu.Caption:= 'Atualização Baixada!\nAguarde...';
+If ShellExecute( Application.MainForm.Handle, PChar( 'open' ), PChar( '.\updatehmwin64.exe' ), PChar( 'crmg2022.exe update CRMG2022' ), PChar( '' ), SW_SHOWNORMAL ) <= 32 Then ShowMessage('erro');
+application.Terminate;
+//shellexecute(
+end;
+
+procedure TfMain.mxUpdateBeforeShowInfo(Sender: TObject; var ShowInfo,
+  CheckForUpdate: Boolean);
+begin
+ShowInfo:= false;
 end;
 
 procedure TfMain.mxUpdateDownload(Sender: TObject; Total, Downloaded: Integer);

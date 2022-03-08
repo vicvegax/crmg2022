@@ -13,7 +13,7 @@ uses
 
 type
   TDM = class(TDataModule)
-    FDTransaction1: TFDTransaction;
+    DBTRANS: TFDTransaction;
     DBCON: TFDConnection;
     qyCat: TFDQuery;
     qyUsu: TFDQuery;

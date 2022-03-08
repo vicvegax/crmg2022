@@ -18,198 +18,165 @@ object fInvent: TfInvent
   TextHeight = 15
   object pcInv: TPageControl
     Left = 0
-    Top = 0
+    Top = 41
     Width = 782
-    Height = 337
+    Height = 304
     ActivePage = tsCad
     Align = alTop
-    TabOrder = 0
+    TabOrder = 1
     object tsCad: TTabSheet
       Caption = 'Dados do Cadastro'
-      object Label1: TLabel
-        Left = 8
-        Top = 16
-        Width = 54
-        Height = 15
-        Caption = 'Descri'#231#227'o:'
-      end
-      object Label5: TLabel
-        Left = 665
-        Top = 16
-        Width = 33
-        Height = 15
-        Caption = 'Ident.:'
-      end
-      object Label2: TLabel
-        Left = 431
-        Top = 16
-        Width = 39
-        Height = 15
-        Caption = 'C'#243'digo'
-      end
       object Label3: TLabel
-        Left = 8
-        Top = 60
-        Width = 60
+        Left = 4
+        Top = 152
+        Width = 48
         Height = 15
-        Caption = 'Ativo ('#218'til):'
+        Caption = 'Situa'#231#227'o:'
       end
       object Label4: TLabel
-        Left = 400
-        Top = 192
-        Width = 70
+        Left = 472
+        Top = 106
+        Width = 24
         Height = 15
-        Caption = 'Observa'#231#245'es:'
+        Caption = 'Obs.'
       end
       object Label6: TLabel
-        Left = 256
-        Top = 60
+        Left = 4
+        Top = 20
         Width = 54
         Height = 15
         Caption = 'Categoria:'
       end
       object Label7: TLabel
-        Left = 8
-        Top = 103
+        Left = 4
+        Top = 63
         Width = 80
         Height = 15
         Caption = 'Dt. da Compra:'
       end
       object Label8: TLabel
-        Left = 238
-        Top = 103
+        Left = 234
+        Top = 63
         Width = 91
         Height = 15
         Caption = 'Valor de Compra:'
       end
       object Label9: TLabel
-        Left = 8
-        Top = 146
+        Left = 4
+        Top = 106
         Width = 88
         Height = 15
         Caption = 'Vida '#218'till (Anos):'
       end
       object Label10: TLabel
-        Left = 476
-        Top = 103
+        Left = 472
+        Top = 63
         Width = 71
         Height = 15
         Caption = 'Conserva'#231#227'o:'
       end
       object Label11: TLabel
-        Left = 192
-        Top = 146
+        Left = 188
+        Top = 106
         Width = 135
         Height = 15
         Caption = 'Valor Depreciado (Linear):'
       end
       object Label13: TLabel
-        Left = 8
-        Top = 192
+        Left = 234
+        Top = 152
         Width = 91
         Height = 15
         Caption = #218'lt. Manuten'#231#227'o:'
       end
       object Label14: TLabel
-        Left = 8
-        Top = 236
+        Left = 4
+        Top = 199
         Width = 64
         Height = 15
         Caption = 'Localiza'#231#227'o:'
       end
-      object edDESCR: TEdit
-        Left = 80
-        Top = 13
-        Width = 305
-        Height = 23
-        TabOrder = 0
-        TextHint = '(Descri'#231#227'o)'
+      object Label12: TLabel
+        Left = 4
+        Top = 244
+        Width = 88
+        Height = 15
+        Caption = 'Incorporado em:'
       end
-      object edID: TEdit
-        Left = 704
-        Top = 13
-        Width = 65
-        Height = 23
-        TabStop = False
-        Alignment = taRightJustify
-        ReadOnly = True
-        TabOrder = 2
-      end
-      object edCod: TEdit
-        Left = 476
-        Top = 13
-        Width = 121
-        Height = 23
-        MaxLength = 8
-        TabOrder = 1
-        TextHint = '(C'#243'digo)'
-        OnKeyPress = edENTER_KeyPress
+      object Label15: TLabel
+        Left = 244
+        Top = 244
+        Width = 41
+        Height = 15
+        Caption = 'Motivo:'
       end
       object cbAtivo: TComboBox
-        Left = 80
-        Top = 57
+        Left = 74
+        Top = 149
+        Width = 145
+        Height = 23
+        Style = csDropDownList
+        ItemIndex = 0
+        TabOrder = 6
+        Text = 'Ativo'
+        Items.Strings = (
+          'Ativo'
+          'Em Manuten'#231#227'o'
+          'Em Desuso'
+          'Obsoleto'
+          'Imprest'#225'vel')
+      end
+      object edOBS: TMemo
+        Left = 472
+        Top = 127
+        Width = 295
+        Height = 137
+        TabOrder = 11
+      end
+      object cbIDCAT: TMyComboBox
+        Left = 76
+        Top = 17
+        Width = 433
+        Height = 23
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object edDTCOM: TcxDateEdit
+        Left = 99
+        Top = 60
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DisplayFormat = 'dd/mm/yyyy'
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        TabOrder = 1
+        Width = 121
+      end
+      object edVLCOM: TcxCalcEdit
+        Left = 331
+        Top = 60
+        EditValue = 0.000000000000000000
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DisplayFormat = ',0.00'
+        Properties.ImmediatePost = True
+        Properties.Nullstring = '0'
+        TabOrder = 2
+        Width = 121
+      end
+      object edVIDUTIL: TcxSpinEdit
+        Left = 98
+        Top = 103
+        Properties.ImmediatePost = True
+        TabOrder = 4
+        Width = 75
+      end
+      object cbSITUA: TComboBox
+        Left = 557
+        Top = 60
         Width = 145
         Height = 23
         Style = csDropDownList
         ItemIndex = 0
         TabOrder = 3
-        Text = 'Sim'
-        Items.Strings = (
-          'Sim'
-          'N'#227'o'
-          'Suspenso'
-          'Afastado'
-          'Atestado')
-      end
-      object edOBS: TMemo
-        Left = 476
-        Top = 189
-        Width = 295
-        Height = 115
-        TabOrder = 12
-      end
-      object cbIDCAT: TMyComboBox
-        Left = 328
-        Top = 57
-        Width = 433
-        Height = 23
-        Style = csDropDownList
-        TabOrder = 4
-      end
-      object edDTCOM: TcxDateEdit
-        Left = 103
-        Top = 100
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DisplayFormat = 'dd/mm/yyyy'
-        Properties.SaveTime = False
-        Properties.ShowTime = False
-        TabOrder = 5
-        Width = 121
-      end
-      object edVLCOM: TcxCalcEdit
-        Left = 335
-        Top = 100
-        EditValue = 0.000000000000000000
-        Properties.Alignment.Horz = taRightJustify
-        Properties.DisplayFormat = ',0.00'
-        Properties.Nullstring = '0'
-        TabOrder = 6
-        Width = 121
-      end
-      object edVIDUTIL: TcxSpinEdit
-        Left = 102
-        Top = 143
-        TabOrder = 8
-        Width = 75
-      end
-      object cbSITUA: TComboBox
-        Left = 553
-        Top = 100
-        Width = 145
-        Height = 23
-        Style = csDropDownList
-        ItemIndex = 0
-        TabOrder = 7
         Text = 'Bom'
         Items.Strings = (
           'Bom'
@@ -217,15 +184,15 @@ object fInvent: TfInvent
           'Ruim')
       end
       object edVLDEP: TEdit
-        Left = 335
-        Top = 143
+        Left = 331
+        Top = 103
         Width = 121
         Height = 23
-        TabOrder = 9
+        TabOrder = 5
       end
       object edDTMAN: TcxDateEdit
-        Left = 105
-        Top = 189
+        Left = 331
+        Top = 149
         Properties.Alignment.Horz = taRightJustify
         Properties.ClearKey = 46
         Properties.DateButtons = [btnClear, btnToday]
@@ -233,33 +200,153 @@ object fInvent: TfInvent
         Properties.DisplayFormat = 'dd/mm/yyyy'
         Properties.SaveTime = False
         Properties.ShowTime = False
-        TabOrder = 10
+        TabOrder = 7
         Width = 121
       end
       object cbIDLOC: TMyComboBox
-        Left = 80
-        Top = 233
+        Left = 74
+        Top = 196
         Width = 376
         Height = 23
         Style = csDropDownList
-        TabOrder = 11
+        TabOrder = 8
         OnKeyPress = edENTER_KeyPress
+      end
+      object edDTINCOR: TcxDateEdit
+        Left = 101
+        Top = 241
+        Properties.Alignment.Horz = taRightJustify
+        Properties.DisplayFormat = 'dd/mm/yyyy'
+        Properties.SaveTime = False
+        Properties.ShowTime = False
+        TabOrder = 9
+        OnKeyPress = edENTER_KeyPress
+        Width = 121
+      end
+      object cbTPINCOR: TComboBox
+        Left = 291
+        Top = 241
+        Width = 145
+        Height = 23
+        Style = csDropDownList
+        ItemIndex = 0
+        TabOrder = 10
+        Text = 'CADASTRO'
+        OnKeyPress = edENTER_KeyPress
+        Items.Strings = (
+          'CADASTRO'
+          'AQUISI'#199#195'O'
+          'PERMUTA'
+          'TRANSFER'#202'NCIA')
       end
     end
     object tsHist: TTabSheet
       Caption = 'Hist'#243'rico'
       ImageIndex = 1
+      object DBGrid1: TDBGrid
+        Left = 0
+        Top = 0
+        Width = 774
+        Height = 274
+        Align = alClient
+        DataSource = dsMov
+        ReadOnly = True
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -12
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'id'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'id_inv'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'tp_reg'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'data'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ds_reg'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'ds_loc'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'id_loc'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'st_ini'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'st_fim'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'nt_reg'
+            Width = 64
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'cd_mov'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'valor'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'obs'
+            Width = 64
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'dt_inc'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'us_inc'
+            Visible = False
+          end>
+      end
     end
   end
   object gdRec: TDBGrid
     Left = 0
-    Top = 337
+    Top = 345
     Width = 782
-    Height = 216
+    Height = 208
     Align = alClient
     DataSource = dsRec
     ReadOnly = True
-    TabOrder = 1
+    TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
@@ -324,12 +411,6 @@ object fInvent: TfInvent
       end
       item
         Expanded = False
-        FieldName = 'obs'
-        Width = 300
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'situa'
         Visible = True
       end
@@ -345,7 +426,23 @@ object fInvent: TfInvent
       end
       item
         Expanded = False
+        FieldName = 'dt_incor'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'tp_incor'
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'ativo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'obs'
+        Width = 300
         Visible = True
       end
       item
@@ -374,6 +471,63 @@ object fInvent: TfInvent
         Visible = True
       end>
   end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 782
+    Height = 41
+    Align = alTop
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 16
+      Width = 54
+      Height = 15
+      Caption = 'Descri'#231#227'o:'
+    end
+    object Label2: TLabel
+      Left = 431
+      Top = 16
+      Width = 39
+      Height = 15
+      Caption = 'C'#243'digo'
+    end
+    object Label5: TLabel
+      Left = 665
+      Top = 16
+      Width = 33
+      Height = 15
+      Caption = 'Ident.:'
+    end
+    object edDESCR: TEdit
+      Left = 80
+      Top = 10
+      Width = 305
+      Height = 23
+      TabOrder = 0
+      TextHint = '(Descri'#231#227'o)'
+    end
+    object edCod: TEdit
+      Left = 476
+      Top = 10
+      Width = 121
+      Height = 23
+      MaxLength = 8
+      TabOrder = 1
+      TextHint = '(C'#243'digo)'
+      OnKeyPress = edENTER_KeyPress
+    end
+    object edID: TEdit
+      Left = 704
+      Top = 10
+      Width = 65
+      Height = 23
+      TabStop = False
+      Alignment = taRightJustify
+      ReadOnly = True
+      TabOrder = 2
+    end
+  end
   object dsRec: TDataSource
     DataSet = qyRec
     Left = 78
@@ -384,8 +538,8 @@ object fInvent: TfInvent
     Connection = DM.DBCON
     SQL.Strings = (
       'select * from tbInvent')
-    Left = 171
-    Top = 396
+    Left = 170
+    Top = 456
     object qyRecid: TFDAutoIncField
       FieldName = 'id'
       Origin = 'id'
@@ -484,6 +638,93 @@ object fInvent: TfInvent
       KeyFields = 'id_local'
       Size = 50
       Lookup = True
+    end
+    object qyRecdt_incor: TDateField
+      FieldName = 'dt_incor'
+      Origin = 'dt_incor'
+    end
+    object qyRectp_incor: TIntegerField
+      FieldName = 'tp_incor'
+      Origin = 'tp_incor'
+    end
+  end
+  object dsMov: TDataSource
+    DataSet = qyMov
+    Left = 116
+    Top = 163
+  end
+  object qyMov: TFDQuery
+    OnCalcFields = qyMovCalcFields
+    Filtered = True
+    Connection = DM.DBCON
+    SQL.Strings = (
+      'select * from plMovimento ORDER BY id_inv, data, tp_reg')
+    Left = 212
+    Top = 163
+    object qyMovid: TFDAutoIncField
+      FieldName = 'id'
+    end
+    object qyMovid_inv: TIntegerField
+      FieldName = 'id_inv'
+    end
+    object flDSREG: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'ds_reg'
+      Size = 50
+      Calculated = True
+    end
+    object qyMovds_loc: TStringField
+      FieldKind = fkLookup
+      FieldName = 'ds_loc'
+      LookupDataSet = DM.qyLoc
+      LookupKeyFields = 'id'
+      LookupResultField = 'descr'
+      KeyFields = 'id_loc'
+      Size = 50
+      Lookup = True
+    end
+    object qyMovid_loc: TIntegerField
+      FieldName = 'id_loc'
+    end
+    object qyMovst_ini: TStringField
+      FieldName = 'st_ini'
+      FixedChar = True
+      Size = 1
+    end
+    object qyMovst_fim: TStringField
+      FieldName = 'st_fim'
+      FixedChar = True
+      Size = 1
+    end
+    object qyMovtp_reg: TStringField
+      FieldName = 'tp_reg'
+      FixedChar = True
+      Size = 1
+    end
+    object qyMovnt_reg: TStringField
+      FieldName = 'nt_reg'
+      FixedChar = True
+      Size = 1
+    end
+    object qyMovdata: TDateField
+      FieldName = 'data'
+    end
+    object qyMovcd_mov: TIntegerField
+      FieldName = 'cd_mov'
+    end
+    object qyMovobs: TWideStringField
+      FieldName = 'obs'
+      Size = 255
+    end
+    object qyMovvalor: TFloatField
+      FieldName = 'valor'
+    end
+    object qyMovdt_inc: TDateField
+      FieldName = 'dt_inc'
+    end
+    object qyMovus_inc: TWideStringField
+      FieldName = 'us_inc'
+      Size = 8
     end
   end
 end

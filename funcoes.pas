@@ -19,14 +19,28 @@ const
   kNovoId = '(AUTOM)';
   kENTER = #13;
 
-  kMsgInc = 'Confirma Inclusão deste Registro?';
-  kMsgAlt = 'Confirma Alteração deste Registro?';
-  kMsgExc = 'Confirma Exclusão deste Registro?';
-  kMsgCer = 'Tem CERTEZA que dejesa Excluir este Registro?';
+  kMsgInc = 'Confirmar Inclusão deste Registro?';
+  kMsgAlt = 'Confirmar Alteração deste Registro?';
+  kMsgExc = 'Confirmar EXCLUSÃO deste Registro?';
+  kMsgExcCtz = 'Tem CERTEZA que dejesa EXCLUIR este Registro?';
   kJaCad = 'Este(a) "%s" já está cadastrado.';
   kNaoLoc = 'Este(a) "%s" não foi localizado.';
   kCadas = 'Este(a) "%s" não existe. Deseja cadastrá-lo(a)?';
   kPreen = 'Você deve preencher o campo "%s" corretamente.';
+
+  cNTCRE = 'C';
+  cNTDEB = 'D';
+  cNTNEU = 'N';
+
+  cSTINI = 'N';
+  cSTFIM = 'N';
+
+  cTPAQU = '1';  //Operação de Aquisição
+  cTPSAI = '2';  //Operação de Transferência - Origem
+  cTPORI = '2';  //Operação de Transferência - Origem
+  cTPENT = '3';  //Operação de Transferência - Destino
+  cTPDST = '3';  //Operação de Transferência - Origem
+  cTPMAN = '8';  //Manutenção
 
 var
   wUsuario: string;

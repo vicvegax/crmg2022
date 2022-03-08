@@ -10,3 +10,6 @@ Win32/Debug/*.*
 compiled/crmg2022.exe
 compiled/update/*.*
 .gitignore.bak
+compiled/crmg2022 - Copia.exe
+compiled/dados.db
+updates/update.htm.bak

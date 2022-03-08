@@ -1024,7 +1024,7 @@ object fMain: TfMain
         Width = 121
         Height = 23
         TabOrder = 4
-        Text = 'v0.1.01 :)'
+        Text = 'v0.1.05 :)'
         Visible = False
       end
     end
@@ -1088,27 +1088,29 @@ object fMain: TfMain
     InfoCaption.OkButton = '&OK'
     InfoCaption.CancelButton = '&Cancel'
     InfoCaption.CheckForUpdate = 'C&heck for updates in the future'
-    Options = [uoRunUpdate, uoTerminate, uoOverwrite]
+    Options = [uoOverwrite]
     Version = '1.21'
     HTTPPort = 80
+    OnAfterDownload = mxUpdateAfterDownload
     OnUpdateAvailable = mxUpdateUpdateAvailable
+    OnBeforeShowInfo = mxUpdateBeforeShowInfo
     OnNoUpdateFound = mxUpdateNoUpdateFound
     OnDownload = mxUpdateDownload
-    Left = 627
-    Top = 154
+    Left = 688
+    Top = 201
   end
   object mxProtector1: TmxProtector
     CodeKey = 'Ignore'
     ProtectionTypes = [stTimeTrial]
     Options = [poAutoInit, poCheckSytemTime, poPasswordOnce]
     RegistryRootKey = rkCurrentUser
-    Expiration = 44624.481944444440000000
+    Expiration = 44656.481944444440000000
     MaxStartNumber = 3
     MaxDayNumber = 5
     Version = '1.32'
     OnExpiration = mxProtector1Expiration
-    Left = 786
-    Top = 338
+    Left = 647
+    Top = 391
     UniqueCodeID = 
       '7A4146373C33463F4A273B4F3D372224552723392D21262F34582F2A2B282862' +
       '62166614165B'

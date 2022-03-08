@@ -4,7 +4,8 @@ object DM: TDM
   Height = 499
   Width = 698
   PixelsPerInch = 120
-  object FDTransaction1: TFDTransaction
+  object DBTRANS: TFDTransaction
+    Options.DisconnectAction = xdRollback
     Connection = DBCON
     Left = 96
     Top = 48
@@ -14,9 +15,11 @@ object DM: TDM
       'Database=D:\Projetos\Delphi\crmg2022\compiled\dados.db'
       'LockingMode=Normal'
       'DriverID=SQLite')
+    TxOptions.DisconnectAction = xdRollback
     ConnectedStoredUsage = [auDesignTime]
+    Connected = True
     LoginPrompt = False
-    Transaction = FDTransaction1
+    Transaction = DBTRANS
     Left = 80
     Top = 152
   end

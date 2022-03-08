@@ -114,10 +114,10 @@ begin
       MsgErro(Format(kNaoLoc, ['Texto']));
       Exit;
     end;
-    if(msgPergunta(kMsgExc, kModo[wModo])) then
-      if(msgPergunta(kMsgExc, kModo[wModo])) then begin
-        qyREC.Delete;
-      end;
+    if(not msgPergunta(kMsgExc, kModo[wModo])) then  exit;
+    if(not msgPergunta(kMsgExcCtz, kModo[wModo])) then exit;
+
+    qyREC.Delete;
   end;
   qyRec.EnableControls;
   qyRec.Refresh;
