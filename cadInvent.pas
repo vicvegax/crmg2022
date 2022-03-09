@@ -10,7 +10,7 @@ uses
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, Vcl.Mask, Vcl.Buttons, funcoes, Vcl.ComCtrls,
   MyComboBox2022, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
-  cxContainer, cxEdit, dxCore,
+  cxContainer, cxEdit, dxCore, DateUtils,
   cxDateUtils, cxCalc, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxCalendar,
   cxSpinEdit;
 
@@ -338,6 +338,7 @@ procedure TfInvent.gdRecDblClick(Sender: TObject);
 begin
 if qyRec.RecordCount>0 then
   PreCampos;
+  qtModoInc:= 0;
 end;
 
 procedure TfInvent.LimpaCampos;
@@ -363,6 +364,8 @@ begin
 end;
 
 procedure TfInvent.preCampos;
+var
+  dVLDEP: double;
 begin
   with qyRec do begin
     edDESCR.Text:= FieldByName('DESCR').AsString;
@@ -381,6 +384,13 @@ begin
     edDTINCOR.Date:= fieldbyname('dt_incor').AsDateTime;
     if edDTINCOR.EditValue = 0 then edDTINCOR.EditValue:= null;
     cbTPINCOR.ItemIndex:= FieldByName('tp_incor').AsInteger;
+
+    dVLDEP:= edVLCOM.Value -
+             ((edVLCOM.Value / (edVidUtil.Value * 12)) *
+             MonthsBetween(Date, edDTCOM.Date));
+
+    edVLDEP.Text:= FormatFloat(',0.00', dVLDEP);
+
     if not (wModo = modoInc) then begin
       edID.Text:= FieldByName('id').AsString;
       qyMov.Filter:= ' id_inv = ' + edID.Text;

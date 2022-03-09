@@ -814,6 +814,24 @@ object fMain: TfMain
         ParentFont = False
         TabOrder = 0
         Visible = False
+        DesignSize = (
+          805
+          41)
+        object lbCap: TLabel
+          Left = 731
+          Top = 7
+          Width = 63
+          Height = 23
+          Alignment = taRightJustify
+          Anchors = [akTop, akRight]
+          Caption = 'Caption'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -17
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
       end
       object pnBarCad: TPanel
         Left = 0
@@ -831,6 +849,11 @@ object fMain: TfMain
           Height = 25
           Action = acInc
           GroupIndex = 1
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000000000000000
@@ -866,15 +889,21 @@ object fMain: TfMain
             B9FFE3C5A3FFC59973F24C392A67000000060000000100000000000000000000
             000000000001000000022019122C6C543E89A47E5FCCC59770F1C19570EEA47E
             60CD6C543F8B16110D2200000003000000010000000000000000}
+          ParentFont = False
         end
         object btAlt: TSpeedButton
           Tag = 2
           Left = 135
-          Top = 6
+          Top = 8
           Width = 113
           Height = 25
           Action = acAlt
           GroupIndex = 1
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clGreen
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000000000000000
@@ -910,15 +939,21 @@ object fMain: TfMain
             54EF8A8A8A8D0000000000000000000000000000000000000000000000000000
             0000A5A5A5A6BDBDBDC0BDBDBDC0BEBEBEC04C4C4C4CBEBEBEBFBDBDBDC0BDBD
             BDC08B8B8B8C0000000000000000000000000000000000000000}
+          ParentFont = False
         end
         object btExc: TSpeedButton
           Tag = 3
           Left = 254
-          Top = 6
+          Top = 8
           Width = 113
           Height = 25
           Action = acExc
           GroupIndex = 1
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clRed
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000000000000000
@@ -954,6 +989,7 @@ object fMain: TfMain
             00053543728E4F63AACD151A2D40000000040000000000000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0001000000030000000400000002000000000000000000000000}
+          ParentFont = False
         end
         object btConf: TSpeedButton
           Tag = 4
@@ -962,6 +998,11 @@ object fMain: TfMain
           Width = 113
           Height = 25
           Action = acConf
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlue
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
+          Font.Style = []
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
             2000000000000004000000000000000000000000000000000000000000000000
@@ -997,6 +1038,7 @@ object fMain: TfMain
             0000000000000000000100000004000000060000000300000000000000000000
             0000000000000000000000000000000000000000000000000000000000000000
             0000000000000000000000000000000000000000000000000000}
+          ParentFont = False
         end
       end
       object Edit1: TEdit
@@ -1024,7 +1066,7 @@ object fMain: TfMain
         Width = 121
         Height = 23
         TabOrder = 4
-        Text = 'v0.2.0.2 :)'
+        Text = 'v0.2.0.4 - 09/03/2022 :)'
         Visible = False
       end
     end

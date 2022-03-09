@@ -34,8 +34,8 @@ object fInvent: TfInvent
         Caption = 'Situa'#231#227'o:'
       end
       object Label4: TLabel
-        Left = 472
-        Top = 106
+        Left = 741
+        Top = 128
         Width = 24
         Height = 15
         Caption = 'Obs.'
@@ -128,9 +128,9 @@ object fInvent: TfInvent
       end
       object edOBS: TMemo
         Left = 472
-        Top = 127
+        Top = 149
         Width = 295
-        Height = 137
+        Height = 115
         TabOrder = 11
       end
       object cbIDCAT: TMyComboBox
@@ -188,6 +188,7 @@ object fInvent: TfInvent
         Top = 103
         Width = 121
         Height = 23
+        Alignment = taRightJustify
         TabOrder = 5
       end
       object edDTMAN: TcxDateEdit

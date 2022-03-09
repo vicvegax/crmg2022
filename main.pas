@@ -39,6 +39,7 @@ type
     cxLocalizer1: TcxLocalizer;
     edVersao: TEdit;
     Label1: TLabel;
+    lbCap: TLabel;
     procedure btTabClick(Sender: TObject);
     procedure acModoExecute(Sender: TObject);
     procedure acConfExecute(Sender: TObject);
@@ -89,13 +90,22 @@ begin
  if(not Assigned(fChild)) then Exit;
 
   wModo:= TComponent(Sender).Tag;
-  if(wModo = 1) then btInc.Down:= true
-  else if(wModo = 2) then btAlt.Down:= true
-  else btExc.Down:= true;
 
   //fChild.Tag:= lModo;
 
-  fChild.Caption:= lCaption + ' - Modo de ' + kModo[wModo];
+  fChild.Caption:= lCaption;// + ' - Modo de ' + kModo[wModo];
+  lbCap.Caption:= ' *** Modo de ' + kModo[wModo] + ' *** ';
+  if(wModo = 1) then begin
+    btInc.Down:= true;
+    lbCap.Font.Color:= clBlack;
+  end else if(wModo = 2) then  begin
+    btAlt.Down:= true;
+    lbCap.Font.Color:= clGreen;
+  end else begin
+    btExc.Down:= true;
+    lbCap.Font.Color:= clRed;
+  end;
+
   fMain.AtuHead(fChild.Caption);
   SendMessage(fChild.Handle, WM_ACAO, wpModo, wModo);  //Informa que o Modo foi Alterado (Inc, Alt, Exc)
 end;
